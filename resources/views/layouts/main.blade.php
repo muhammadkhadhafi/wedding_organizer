@@ -12,16 +12,16 @@
   <title>HARMONI</title>
 
   <!-- Custom fonts for this template-->
-  <link href="template/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="{{ url('template') }}/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link
     href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
     rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="template/css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="{{ url('template') }}/css/sb-admin-2.min.css" rel="stylesheet">
 
   <!-- dataTables -->
-  <link href="template/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+  <link href="{{ url('template') }}/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
 </head>
 
@@ -94,21 +94,21 @@
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="template/vendor/jquery/jquery.min.js"></script>
-  <script src="template/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="{{ url('template') }}/vendor/jquery/jquery.min.js"></script>
+  <script src="{{ url('template') }}/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="template/vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="{{ url('template') }}/vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="template/js/sb-admin-2.min.js"></script>
+  <script src="{{ url('template') }}/js/sb-admin-2.min.js"></script>
 
   <!-- Page level plugins -->
-  <script src="template/vendor/datatables/jquery.dataTables.min.js"></script>
-  <script src="template/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+  <script src="{{ url('template') }}/vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="{{ url('template') }}/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
   <!-- Page level custom scripts -->
-  <script src="template/js/demo/datatables-demo.js"></script>
+  <script src="{{ url('template') }}/js/demo/datatables-demo.js"></script>
 
 </body>
 

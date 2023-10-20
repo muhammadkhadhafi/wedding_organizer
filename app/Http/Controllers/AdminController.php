@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Admin;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -30,7 +31,19 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules = [
+            'nama' => ['required', 'max:255'],
+            'username' => ['required', 'unique:admins', 'min:3', 'max:255'],
+            'password' => 'required|min:5|max:255',
+        ];
+
+        $validatedData = $request->validate($rules);
+
+        $validatedData['password'] = Hash::make($validatedData['password']);
+
+        Admin::create($validatedData);
+
+        return redirect('/admin')->with('sukses', 'Admin berhasil ditambahkan');
     }
 
     /**
@@ -40,6 +53,6 @@ class AdminController extends Controller
     {
         Admin::destroy($admin->id);
 
-        return redirect('/admin')->with('sukses', 'Berhasil');
+        return redirect('/admin')->with('sukses', 'Admin berhasil dihapus');
     }
 }

@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('container')
-  <h1 class="h3 mb-4 text-gray-800">Admin</h1>
+  <h1 class="h3 mb-4 text-gray-800">Jasa Perusahaan</h1>
 
   @if (session()->has('sukses'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -9,11 +9,13 @@
       </button>
     </div>
   @endif
+
   <div class="card shadow m-0 mb-4">
     <div class="card-header justify-content-between d-flex align-items-center">
-      <h6 class="m-0 font-weight-bold text-primary text-uppercase">Admin</h6>
-      <a href="{{ url('/admin/create') }}" class="btn btn-sm btn-primary"><i class="fas fa-plus fa-sm"></i> Tambah
-        Admin</a>
+      <h6 class="m-0 font-weight-bold text-primary text-uppercase">Jasa Perusahaan</h6>
+      <a href="{{ url('/jasaperusahaan/create') }}" class="btn btn-sm btn-primary"><i class="fas fa-plus fa-sm"></i>
+        Tambah
+        Jasa Perusahaan</a>
     </div>
     <div class="card-body">
       <div class="table-responsive">
@@ -21,25 +23,29 @@
           <thead class="bg-gradient-primary text-light text-uppercase">
             <th width="15px">No</th>
             <th width="80px">Aksi</th>
-            <th>Nama</th>
-            <th>Username</th>
+            <th>Judul</th>
+            <th>Lokasi</th>
           </thead>
           <tbody>
-            @foreach ($admins as $admin)
+            @foreach ($jasaperusahaans as $jasaperusahaan)
               <tr>
                 <td>{{ $loop->iteration }}</td>
                 <td>
                   <div class="btn-group">
-                    <form action="{{ url('admin/' . $admin->id) }}" method="post"
+                    <a href="{{ url('/jasaperusahaans' . $jasaperusahaan->id) }}" class="btn btn-sm btn-primary"><i
+                        class="fas fa-info"></i></a>
+                    <a href="{{ url('/jasaperusahaans' . $jasaperusahaan->id) }}/edit" class="btn btn-sm btn-warning"><i
+                        class="fas fa-pencil-alt"></i></a>
+                    <form action="{{ url('jasaperusahaan/' . $jasaperusahaan->id) }}" method="post"
                       onsubmit="return confirm('Yakin ingin menghapus data ini?')">
                       @method('delete')
                       @csrf
-                      <button type="submit" class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i> Hapus</button>
+                      <button type="submit" class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i></button>
                     </form>
                   </div>
                 </td>
-                <td>{{ $admin->nama }}</td>
-                <td>{{ $admin->username }}</td>
+                <td>{{ $jasaperusahaan->judul }}</td>
+                <td>{{ $jasaperusahaan->lokasi }}</td>
               </tr>
             @endforeach
           </tbody>

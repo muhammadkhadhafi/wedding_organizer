@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\JasaPerusahaanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,10 +18,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('organizer.dashboard');
-});
+})->middleware('auth');
 
 Route::get('/login', [AuthController::class, 'login'])->name('login')->middleware('guest');
 Route::post('/login', [AuthController::class, 'loginProcess']);
 Route::get('/logout', [AuthController::class, 'logout']);
 
-Route::resource('admin', AdminController::class)->except(['show', 'edit', 'update']);
+Route::resource('/admin', AdminController::class)->except(['show', 'edit', 'update'])->middleware('auth');
+
+Route::resource('/jasaperusahaan', JasaPerusahaanController::class)->middleware('auth');
