@@ -28,14 +28,21 @@
   <li class="nav-item {{ Request::is('galeryfoto*') ? 'active' : '' }}">
     <a class="nav-link" href="{{ url('/galeryfoto') }}">
       <i class="fas fa-image"></i>
-      <span>Galery Foto</span></a>
+      <span>Galeri Foto</span></a>
   </li>
 
-  <li class="nav-item {{ Request::is('artikel*') ? 'active' : '' }}">
+
+  <li class="nav-item {{ Request::is('galeryfoto*') ? 'active' : '' }}">
+    <a class="nav-link" href="{{ url('/galeryfoto') }}">
+      <i class="fas fa-address-book"></i>
+      <span>Daftar Klien</span></a>
+  </li>
+
+  {{-- <li class="nav-item {{ Request::is('artikel*') ? 'active' : '' }}">
     <a class="nav-link" href="{{ url('/artikel') }}">
       <i class="fas fa-newspaper"></i>
       <span>Artikel</span></a>
-  </li>
+  </li> --}}
 
   <li class="nav-item {{ Request::is('admin*') ? 'active' : '' }}">
     <a class="nav-link" href="{{ url('/admin') }}">

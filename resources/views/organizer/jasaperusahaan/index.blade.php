@@ -32,9 +32,9 @@
                 <td>{{ $loop->iteration }}</td>
                 <td>
                   <div class="btn-group">
-                    <a href="{{ url('/jasaperusahaans' . $jasaperusahaan->id) }}" class="btn btn-sm btn-primary"><i
+                    <a href="{{ url('/jasaperusahaan/' . $jasaperusahaan->id) }}" class="btn btn-sm btn-primary"><i
                         class="fas fa-info"></i></a>
-                    <a href="{{ url('/jasaperusahaans' . $jasaperusahaan->id) }}/edit" class="btn btn-sm btn-warning"><i
+                    <a href="{{ url('/jasaperusahaan/' . $jasaperusahaan->id) }}/edit" class="btn btn-sm btn-warning"><i
                         class="fas fa-pencil-alt"></i></a>
                     <form action="{{ url('jasaperusahaan/' . $jasaperusahaan->id) }}" method="post"
                       onsubmit="return confirm('Yakin ingin menghapus data ini?')">
