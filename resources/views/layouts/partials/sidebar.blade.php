@@ -25,15 +25,15 @@
       <span>Jasa Perusahaan</span></a>
   </li>
 
-  <li class="nav-item {{ Request::is('galeryfoto*') ? 'active' : '' }}">
-    <a class="nav-link" href="{{ url('/galeryfoto') }}">
+  <li class="nav-item {{ Request::is('galerifoto*') ? 'active' : '' }}">
+    <a class="nav-link" href="{{ url('/galerifoto') }}">
       <i class="fas fa-image"></i>
-      <span>Galeri Foto</span></a>
+      <span>Galeri Foto Kegiatan</span></a>
   </li>
 
 
-  <li class="nav-item {{ Request::is('galeryfoto*') ? 'active' : '' }}">
-    <a class="nav-link" href="{{ url('/galeryfoto') }}">
+  <li class="nav-item {{ Request::is('daftarklien*') ? 'active' : '' }}">
+    <a class="nav-link" href="{{ url('/daftarklien') }}">
       <i class="fas fa-address-book"></i>
       <span>Daftar Klien</span></a>
   </li>

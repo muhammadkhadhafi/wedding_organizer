@@ -1,19 +1,19 @@
 @extends('layouts.main')
 @section('container')
-  <h1 class="h3 mb-4 text-gray-800">Jasa Perusahaan</h1>
+  <h1 class="h3 mb-4 text-gray-800">Galeri Foto Kegiatan</h1>
 
   <div class="row">
     <div class="col-lg-3">
-      <img src="{{ asset('storage/' . $jasaperusahaan->gambar) }}" class="img-fluid" style="width: 100%"
-        alt="{{ $jasaperusahaan->judul }}">
+      <img src="{{ asset('storage/' . $galerifoto->foto_kegiatan) }}" class="img-fluid" style="width: 100%"
+        alt="{{ $galerifoto->judul }}">
     </div>
     <div class="col-lg-9">
       <div class="card shadow mb-4">
-        <form action="{{ url('/jasaperusahaan/' . $jasaperusahaan->id) }}" method="post" enctype="multipart/form-data">
+        <form action="{{ url('/galerifoto/' . $galerifoto->id) }}" method="post" enctype="multipart/form-data">
           @csrf
           @method('put')
           <div class="card-header d-flex justify-content-between align-items-center">
-            <h6 class="m-0 font-weight-bold text-primary text-uppercase">Edit Jasa Perusahaan</h6>
+            <h6 class="m-0 font-weight-bold text-primary text-uppercase">Edit Foto Kegiatan</h6>
             <button class="btn btn-primary btn-sm float-end float-right"><i class="far fa-save"></i>
               Simpan</button>
           </div>
@@ -23,7 +23,7 @@
                 <div class="mb-3">
                   <label for="judul" class="form-label">Judul</label>
                   <input type="text" class="form-control @error('judul') is-invalid @enderror" id="judul"
-                    name="judul" autofocus value="{{ $jasaperusahaan->judul }}"">
+                    name="judul" autofocus value="{{ $galerifoto->judul }}"">
                   @error('judul')
                     <div class="invalid-feedback">{{ $message }}</div>
                   @enderror
@@ -33,10 +33,10 @@
             <div class="row">
               <div class="col-lg-4">
                 <div class="mb-3">
-                  <label for="harga" class="form-label">Harga</label>
-                  <input type="number" class="form-control @error('harga') is-invalid @enderror" id="harga"
-                    name="harga" value="{{ $jasaperusahaan->harga }}">
-                  @error('harga')
+                  <label for="foto_kegiatan" class="form-label">Foto Kegiatan</label>
+                  <input type="number" class="form-control @error('foto_kegiatan') is-invalid @enderror"
+                    id="foto_kegiatan" name="foto_kegiatan" value="{{ $galerifoto->foto_kegiatan }}">
+                  @error('foto_kegiatan')
                     <div class="invalid-feedback">{{ $message }}</div>
                   @enderror
                 </div>
@@ -45,7 +45,7 @@
                 <div class="mb-3">
                   <label for="kapasitas" class="form-label">Kapasitas</label>
                   <input type="number" class="form-control @error('kapasitas') is-invalid @enderror" id="kapasitas"
-                    name="kapasitas" value="{{ $jasaperusahaan->kapasitas }}">
+                    name="kapasitas" value="{{ $galerifoto->kapasitas }}">
                   @error('kapasitas')
                     <div class="invalid-feedback">{{ $message }}</div>
                   @enderror
@@ -67,7 +67,7 @@
                 <div class="mb-3">
                   <label for="lokasi" class="form-label">Lokasi</label>
                   <input type="lokasi" class="form-control @error('lokasi') is-invalid @enderror" id="lokasi"
-                    name="lokasi" value="{{ $jasaperusahaan->lokasi }}">
+                    name="lokasi" value="{{ $galerifoto->lokasi }}">
                   @error('lokasi')
                     <div class="invalid-feedback">{{ $message }}</div>
                   @enderror
@@ -79,7 +79,7 @@
                 <div class="mb-3">
                   <label for="lokasi" class="form-label">Deskripsi</label>
                   <textarea name="deskripsi" id="deskripsi" cols="30" rows="10"
-                    class="form-control @error('deskripsi') is-invalid @enderror">{{ $jasaperusahaan->deskripsi }}</textarea>
+                    class="form-control @error('deskripsi') is-invalid @enderror">{{ $galerifoto->deskripsi }}</textarea>
                   @error('deskripsi')
                     <div class="invalid-feedback">{{ $message }}</div>
                   @enderror
