@@ -31,44 +31,22 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-lg-4">
+              <div class="col-lg-6">
                 <div class="mb-3">
                   <label for="foto_kegiatan" class="form-label">Foto Kegiatan</label>
-                  <input type="number" class="form-control @error('foto_kegiatan') is-invalid @enderror"
-                    id="foto_kegiatan" name="foto_kegiatan" value="{{ $galerifoto->foto_kegiatan }}">
+                  <input type="file" class="form-control @error('foto_kegiatan') is-invalid @enderror"
+                    id="foto_kegiatan" name="foto_kegiatan" accept=".jpg, .png">
                   @error('foto_kegiatan')
                     <div class="invalid-feedback">{{ $message }}</div>
                   @enderror
                 </div>
               </div>
-              <div class="col-lg-4">
+              <div class="col-lg-6">
                 <div class="mb-3">
-                  <label for="kapasitas" class="form-label">Kapasitas</label>
-                  <input type="number" class="form-control @error('kapasitas') is-invalid @enderror" id="kapasitas"
-                    name="kapasitas" value="{{ $galerifoto->kapasitas }}">
-                  @error('kapasitas')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                  @enderror
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="mb-3">
-                  <label for="gambar" class="form-label">Gambar</label>
-                  <input type="file" class="form-control @error('gambar') is-invalid @enderror" id="gambar"
-                    name="gambar" accept=".jpg, .png">
-                  @error('gambar')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                  @enderror
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-12">
-                <div class="mb-3">
-                  <label for="lokasi" class="form-label">Lokasi</label>
-                  <input type="lokasi" class="form-control @error('lokasi') is-invalid @enderror" id="lokasi"
-                    name="lokasi" value="{{ $galerifoto->lokasi }}">
-                  @error('lokasi')
+                  <label for="tanggal_kegiatan" class="form-label">Tanggal Kegiatan</label>
+                  <input type="date" class="form-control @error('tanggal_kegiatan') is-invalid @enderror"
+                    id="tanggal_kegiatan" name="tanggal_kegiatan" value="{{ $galerifoto->tanggal_kegiatan }}">
+                  @error('tanggal_kegiatan')
                     <div class="invalid-feedback">{{ $message }}</div>
                   @enderror
                 </div>

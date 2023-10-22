@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\GaleriFoto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class GaleriFotoController extends Controller
 {
@@ -63,7 +64,9 @@ class GaleriFotoController extends Controller
      */
     public function edit(GaleriFoto $galerifoto)
     {
-        //
+        return view('organizer.galerifoto.edit', [
+            'galerifoto' => $galerifoto
+        ]);
     }
 
     /**
@@ -71,7 +74,28 @@ class GaleriFotoController extends Controller
      */
     public function update(Request $request, GaleriFoto $galerifoto)
     {
-        //
+        $rules = [
+            'judul' => ['required', 'min:3', 'max:100'],
+            'deskripsi' => ['required', 'min:3', 'max:255'],
+            'tanggal_kegiatan' => ['required']
+        ];
+
+        if ($request->file('foto_kegiatan')) {
+            $rules['foto_kegiatan'] = ['image', 'file', 'max:3066'];
+        }
+
+        $validatedData = $request->validate($rules);
+
+        if ($request->file('foto_kegiatan')) {
+            if ($galerifoto->foto_kegiatan) {
+                Storage::delete($galerifoto->foto_kegiatan);
+            }
+            $validatedData['foto_kegiatan'] = $request->file('foto_kegiatan')->store('galerifotokegiatan');
+        }
+
+        GaleriFoto::where('id', $galerifoto->id)->update($validatedData);
+
+        return redirect('/galerifoto')->with('sukses', 'Foto kegiatan berhasil diperbarui');
     }
 
     /**
@@ -79,6 +103,9 @@ class GaleriFotoController extends Controller
      */
     public function destroy(GaleriFoto $galerifoto)
     {
-        //
+        Storage::delete($galerifoto->foto_kegiatan);
+        GaleriFoto::destroy($galerifoto->id);
+
+        return redirect('/galerifoto')->with('sukses', 'Foto kegiatan berhasil dihapus');
     }
 }
