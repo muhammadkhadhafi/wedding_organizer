@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DaftarKlienController;
 use App\Http\Controllers\GaleriFotoController;
 use App\Http\Controllers\JasaPerusahaanController;
 use Illuminate\Support\Facades\Route;
@@ -26,7 +27,6 @@ Route::post('/login', [AuthController::class, 'loginProcess']);
 Route::get('/logout', [AuthController::class, 'logout']);
 
 Route::resource('/admin', AdminController::class)->except(['show', 'edit', 'update'])->middleware('auth');
-
 Route::resource('/jasaperusahaan', JasaPerusahaanController::class)->middleware('auth');
-
 Route::resource('/galerifoto', GaleriFotoController::class)->middleware('auth');
+Route::resource('/daftarklien', DaftarKlienController::class)->middleware('auth');

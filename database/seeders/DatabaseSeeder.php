@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\Admin;
+use App\Models\DaftarKlien;
 use App\Models\GaleriFoto;
 use App\Models\JasaPerusahaan;
 use Illuminate\Database\Seeder;
@@ -21,6 +22,8 @@ class DatabaseSeeder extends Seeder
         JasaPerusahaan::factory(20)->create();
 
         GaleriFoto::factory(20)->create();
+
+        DaftarKlien::factory(5)->create();
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
